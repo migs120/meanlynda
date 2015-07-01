@@ -16,5 +16,20 @@ router.get('/create', function(req, res, next) {
   res.render('users/create', vm);
 });
 
+/* GET users/views */
+router.post('/create', function(req, res, next) {
+  var somethingGoesWrong = false;
+  if (somethingGoesWrong){
+  var vm =  {
+            title:'create an account',
+            input: req.body,
+            error:'something went wrong'
+            };
+  delete vm.input.password;
+ return res.render('users/create', vm);
+  }
+  res.redirect('/orders');
+});
+
 
 module.exports = router;
