@@ -3,14 +3,14 @@ var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
     firstName: String,
-    lastName: string,
+    lastName: String,
     roomNumber: Number,
     email: String,
     password: String,
-    created: {type:Date, default: Date.now}
+    created: {type: Date, default: Date.now}
   
 });
 
-var User = mongoose.model('User', Schema);
+var User = mongoose.model('User', userSchema);
 
-model.exports = { User: User };
+module.exports = { User: User };
