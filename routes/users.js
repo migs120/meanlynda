@@ -23,10 +23,11 @@ router.post('/create', function(req, res, next) {
 // if (somethingGoesWrong){
 userService.addUser(req.body, function(err){
   if (err){
+    console.log(err);
   var vm =  {
             title:'create an account',
             input: req.body,
-            error:'something went wrong'
+            error:  err    //'something went wrong'
             };
   delete vm.input.password;
  return res.render('users/create', vm);
