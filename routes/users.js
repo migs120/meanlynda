@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var passport = require('passport');
 var userService = require('../services/user-service');
 
 /* GET users listing. */
@@ -36,5 +37,29 @@ userService.addUser(req.body, function(err){
 });
 });
 
+router.post('/login', passport.authenticate('local'), function(req, res, next){
+                                                                                res.redirect('/orders');
+                                                                              }
+           );
+
 
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
