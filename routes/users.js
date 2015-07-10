@@ -43,9 +43,12 @@ userService.addUser(req.body, function(err){
                    );
 });
 
-router.post('/login', passport.authenticate('local'), function(req, res, next){
-                                                                                res.redirect('/orders');
-                                                                              }
+router.post('/login', passport.authenticate('local', { 
+                                                      failureRedirect:'/', 
+                                                      successRedirect: '/orders', 
+                                                      failureFlash: 'Invalid credentials'
+                                                     } 
+                                           )
            );
 
 
