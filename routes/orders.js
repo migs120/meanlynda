@@ -10,6 +10,7 @@ router.get('/', restrict, function(req, res, next) {
                                             var vm = {
                                                       
                                                       title: 'place an order',
+                                                      orderId: req.session.orderId,
                                                       firstName: req.user ? req.user.firstName : null
                                                       }
                                             res.render('orders/index', vm);
